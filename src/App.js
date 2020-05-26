@@ -20,7 +20,7 @@ function App() {
     const getData = async () => {
       try {
         const api = await axios.get(
-          `${config.prefix}/casa_molero_pages/?orderby=menu_order`
+          `${config.prefix}${config.pages}/?orderby=menu_order`
         );
         const apiCopy = { ...api };
         //reverse the order of the array to reflect the wordpress order of pages:
@@ -41,21 +41,21 @@ function App() {
       })
     : null;
 
-  const redirect = state.isLoaded ? (
-    <Redirect
-      to={`/${state.api.data[0].title.rendered.split(" ").join("-")}`}
-    />
-  ) : null;
+  let redirect;
+  if (state.isLoaded && !state.api.data === []) {
+    redirect = (
+      <Redirect
+        to={`/${state.api.data[0].title.rendered.split(" ").join("-")}`}
+      />
+    );
+  }
 
   //when the data is fetched, create Routes for each Page. The path will be equal to the title of the page, with dashes in stead of spaces.
   const pages = state.isLoaded
     ? titles.map((title, index) => {
         return (
           <Route key={index} exact path={`/${title.split(" ").join("-")}`}>
-            <Page
-              pageID={state.api.data[index].id}
-              featuredMedia={state.api.data[index].featured_media}
-            />
+            <Page pageID={state.api.data[index].id} />
           </Route>
         );
       })

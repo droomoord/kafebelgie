@@ -13,54 +13,34 @@ const Page = (props) => {
   const [state, setstate] = useState({
     api: {},
     isLoaded: false,
-    featuredMedia: 0,
-    logo: "",
   });
 
-  const [imageURL, setImageURL] = useState("none");
-
   useEffect(() => {
-    setTimeout(() => {
-      console.log("page effect");
-      const getData = async () => {
-        //get the data from a specific page:
-        try {
-          const api = await axios.get(
-            `${config.prefix}/casa_molero_pages/${pageID}`
-          );
-          setstate({ isLoaded: true, api });
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-      getData();
-
-      //get page image if the page data has a featured_media value
-      const getImage = async () => {
-        try {
-          const api = await axios.get(
-            `${config.prefix}/media/${props.featuredMedia}`
-          );
-          const URL = api.data.media_details.sizes.full.source_url;
-          setImageURL(`url(${URL})`);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-      if (props.featuredMedia) {
-        getImage();
+    console.log("page effect");
+    const getData = async () => {
+      //get the data from a specific page:
+      try {
+        const api = await axios.get(
+          `${config.prefix}${config.pages}/${pageID}`
+        );
+        setstate({ isLoaded: true, api });
+      } catch (error) {
+        console.log(error);
       }
-    }, 300);
+    };
+
+    getData();
   }, [pageID, props.featuredMedia]);
 
   let output;
+  let slideIn;
+  let backgroundImage;
 
   if (!state.isLoaded) {
     output = <Spinner />;
   }
   if (state.isLoaded) {
+    slideIn = "slide-in-left";
     output = (
       <div>
         <div
@@ -70,21 +50,14 @@ const Page = (props) => {
         ></div>
       </div>
     );
-  }
-
-  let slideIn;
-
-  if (state.isLoaded) {
-    slideIn = "slide-in-left";
+    console.log(state.api.data.acf.backgroundimage);
+    backgroundImage = `url(${state.api.data.acf.backgroundimage}`;
   }
 
   return (
     <div>
       {/* {state.isLoaded ? <ArrowDown /> : null} */}
-      <div
-        style={{ backgroundImage: imageURL }}
-        className={["page", slideIn].join(" ")}
-      >
+      <div style={{ backgroundImage }} className={["page", slideIn].join(" ")}>
         {output}
       </div>
     </div>
