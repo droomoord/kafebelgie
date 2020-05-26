@@ -1,0 +1,15 @@
+.spinner{
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    width: 50px;
+}
+
+@keyframes spin{
+    from {transform: rotate(0deg);}
+    to{transform: rotate(720deg);}
+}

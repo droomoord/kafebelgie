@@ -1,0 +1,34 @@
+.arrow-down {
+  position: absolute;
+  background-color: transparent;
+  color: rgb(225, 225, 225);
+  top: 80vh;
+  left: 50vw;
+  padding: 0;
+  margin: 0;
+  font-size: 5em;
+  z-index: 4;
+  animation: arrow;
+  animation-duration: 0.4s;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  animation-timing-function: linear;
+}
+
+@keyframes arrow {
+  from {
+    visibility: visible;
+    padding-top: 0;
+  }
+  to {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 768px){
+    .arrow-down{
+        animation: none;
+        visibility: hidden;
+    }
+}

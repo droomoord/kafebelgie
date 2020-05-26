@@ -1,0 +1,85 @@
+.page {
+  position: relative;
+  margin: 50px 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0;
+  padding-top: calc(100vh - 20px);
+}
+
+.wp-block-image {
+  padding: 5px 20%;
+}
+
+.page img {
+  border-radius: 5px;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.page > * {
+  line-height: 3em;
+  background-color: white;
+  padding: 40px 10%;
+  margin: 0;
+}
+
+.has-text-align-center {
+  text-align: center;
+}
+
+/* @animations: */
+
+p {
+  color: rgb(0, 0, 0);
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    color: rgb(255, 255, 255);
+  }
+  to {
+    color: black;
+  }
+}
+
+.slide-in-left {
+  animation-name: slide-in-left;
+  animation-duration: 0.5s;
+}
+
+@keyframes slide-in-left {
+  from {
+    left: -100vw;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.wp-block-image img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .page {
+    background-size: 100vw;
+    padding-top: 30vh;
+  }
+  .wp-block-image {
+    padding: 5px 0;
+  }
+  .page > * {
+    line-height: 2em;
+  }
+}

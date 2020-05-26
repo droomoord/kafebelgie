@@ -1,0 +1,38 @@
+.side-drawer {
+  padding-top: 100px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 50vw;
+  z-index: 100;
+  border-right: 1px solid black;
+  animation-name: drawer;
+  animation-duration: 0.5s;
+}
+
+.side-drawer a {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15px;
+  display: block;
+  font-family: inherit;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid grey;
+  max-width: 100%;
+}
+
+.side-drawer a:focus{
+    outline: none;
+}
+
+@keyframes drawer {
+  from {
+    left: -30vw;
+  }
+  to {
+    left: 0;
+  }
+}
