@@ -8,7 +8,12 @@
   margin: 0;
   font-size: 5em;
   z-index: 4;
+  visibility: hidden;
+}
+
+.move-down {
   animation: arrow;
+  animation-delay: 2s;
   animation-duration: 0.4s;
   animation-iteration-count: 2;
   animation-fill-mode: forwards;
@@ -26,9 +31,9 @@
   }
 }
 
-@media (max-width: 768px){
-    .arrow-down{
-        animation: none;
-        visibility: hidden;
-    }
+@media (max-width: 768px) {
+  .arrow-down {
+    animation: none;
+    visibility: hidden;
+  }
 }

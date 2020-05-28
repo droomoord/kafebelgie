@@ -1,0 +1,53 @@
+.alert {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 1;
+  background-color: rgb(155, 195, 216);
+  display: inline-block;
+  top: 60vh;
+  padding: 20px;
+  width: 90%;
+  left: 5%;
+  border-radius: 5px;
+  animation-name: fade-in-alert;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 2.5s;
+  opacity: 0;
+}
+
+.alert .x {
+  position: relative;
+  top: -20px;
+  float: right;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.alert .x:hover {
+  font-weight: bold;
+}
+
+@keyframes fade-in-alert {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .alert {
+    line-height: normal;
+    position: fixed;
+    top: 80%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 0.8em;
+  }
+  .alert .x {
+    top: -10px;
+  }
+}

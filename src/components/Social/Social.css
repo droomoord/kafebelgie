@@ -1,0 +1,29 @@
+.social {
+  position: sticky;
+  position: -webkit-sticky;
+  margin: 0;
+  margin-right: -10%;
+  top: 90vh;
+  padding: 0;
+  background-color: transparent;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: flex-end;
+}
+.social > * {
+  display: inline-block;
+}
+
+.social > *:hover {
+  opacity: 0.8;
+}
+
+.social #facebook {
+  color: rgb(45, 135, 255);
+}
+.social #insta {
+  color: black;
+}
+.social #email {
+  color: rgb(59, 117, 140);
+}

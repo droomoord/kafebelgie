@@ -20,7 +20,7 @@ function App() {
     const getData = async () => {
       try {
         const api = await axios.get(
-          `${config.prefix}${config.pages}/?orderby=menu_order`
+          `${config.prefix}/${config.pages}/?orderby=menu_order`
         );
         const apiCopy = { ...api };
         //reverse the order of the array to reflect the wordpress order of pages:
@@ -42,7 +42,7 @@ function App() {
     : null;
 
   let redirect;
-  if (state.isLoaded && !state.api.data === []) {
+  if (state.isLoaded) {
     redirect = (
       <Redirect
         to={`/${state.api.data[0].title.rendered.split(" ").join("-")}`}

@@ -5,20 +5,36 @@
   background-attachment: fixed;
   background-size: cover;
   padding: 0;
-  padding-top: calc(100vh - 20px);
+  padding-top: calc(100vh - 70px);
+  left: -100vw;
+  animation-fill-mode: forwards;
 }
 
-.wp-block-image {
-  padding: 5px 20%;
+.page a {
+  color: rgb(203, 11, 11);
+  transition-duration: 0.5s;
+}
+
+.page a:hover {
+  color: black;
+}
+
+figure {
+  display: flex;
+  margin: 0;
+}
+figure.alignleft {
+  justify-content: flex-start;
+}
+figure.alignright {
+  justify-content: flex-end;
+}
+figure.aligncenter {
+  justify-content: center;
 }
 
 .page img {
   border-radius: 5px;
-}
-
-figure {
-  margin: 0;
-  padding: 0;
 }
 
 .page > * {
@@ -30,6 +46,10 @@ figure {
 
 .has-text-align-center {
   text-align: center;
+}
+
+.has-text-align-right {
+  text-align: right;
 }
 
 /* @animations: */
@@ -56,6 +76,7 @@ p {
 .slide-in-left {
   animation-name: slide-in-left;
   animation-duration: 0.5s;
+  animation-delay: 0.5s;
 }
 
 @keyframes slide-in-left {
@@ -65,10 +86,6 @@ p {
   to {
     left: 0;
   }
-}
-
-.wp-block-image img {
-  width: 100%;
 }
 
 @media (max-width: 768px) {

@@ -14,6 +14,7 @@ const Navbar = (props) => {
     titles = props.titles.map((title, index) => {
       return (
         <Link
+          className={index === 0 ? "active" : null}
           onClick={(e) => {
             document
               .querySelectorAll("a")
@@ -43,7 +44,7 @@ const Navbar = (props) => {
           />
         ) : null}
         {sideDrawer ? <Backdrop clicked={() => toggleSideDrawer()} /> : null}
-        <img className="brand" src={brand} alt="" />
+        <img className="logo" src={brand} alt="" />
         <Hamburger clicked={() => toggleSideDrawer()} />
         {titles}
       </nav>

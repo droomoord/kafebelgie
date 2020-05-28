@@ -2,7 +2,7 @@
   display: none;
 }
 
-.brand {
+.logo {
   height: 100%;
   padding: 15px;
 }
@@ -16,7 +16,7 @@
   border-bottom: 1px solid black;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   background-color: white;
 }
@@ -40,11 +40,10 @@
 
   .navbar > a {
     display: initial;
-    color: rgb(72, 71, 71);
+    color: rgb(89, 89, 89);
     text-decoration: none;
     padding: 10px;
     transition: 0.3s;
-    border-radius: 5px;
   }
 
   .navbar a:last-of-type {
@@ -52,11 +51,20 @@
   }
 
   .navbar > a:hover {
-    color: #e93939;
-    background-color: #fdd402;
+    color: black;
+    background: linear-gradient(
+      to right,
+      rgba(31, 31, 31, 0.5) 33%,
+      rgba(31, 31, 31, 0.5),
+      rgba(255, 241, 57, 0.5) 33%,
+      rgba(255, 241, 57, 0.5) 67%,
+      rgba(186, 39, 45, 0.5) 67%,
+      rgba(186, 39, 45, 0.5) 100%
+    );
   }
 
   .active {
-    color: #e93939 !important;
+    color: #000000 !important;
+    font-weight: bold;
   }
 }
